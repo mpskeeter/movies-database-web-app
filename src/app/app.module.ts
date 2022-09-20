@@ -21,6 +21,9 @@ import { ImagePreloader } from './shared/image-preloader.directive';
 import { RecentSearchesComponent } from './recent-searches/recent-searches.component';
 import { LazyLoadImagesDirective } from './shared/lazy-loading.directive';
 
+import { RatingPipe } from './shared/rating.pipe';
+import { RatingColorPipe } from './shared/rating-color.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +36,8 @@ import { LazyLoadImagesDirective } from './shared/lazy-loading.directive';
     ImagePreloader,
     RecentSearchesComponent,
     LazyLoadImagesDirective,
+    RatingPipe,
+    RatingColorPipe,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,51 @@
+<div class="movie" *ngFor="let movie of movies; let i = index">
+    <div class="fav-overlay"></div>
+    <div class="fav-container" #like>
+      <i
+        class="fa fa-heart"
+        id="favorite"
+        [ngClass]="{ liked: movie.liked }"
+        (click)="
+          addToLiked($event, movie.id, movie)
+        "
+      ></i>
+    </div>
+    <div
+      class="movie-img"
+      [routerLink]="[
+        '/movies',
+        movie.id[i],
+        movie.original_title.replace(/\s+/g, '')
+      ]"
+      (click)="closeRecents()"
+    >
+      <div class="liked-alert add">Added to favorites</div>
+      <div class="liked-alert remove">Removed from favorites</div>
+
+      <div class="movie-rating">
+        <circle-progress
+          backgroundColor="black"
+          [percent]="movie.vote_average | rating"
+          [radius]="18"
+          [outerStrokeWidth]="3"
+          [innerStrokeWidth]="4"
+          [outerStrokeColor]="movie.vote_average | rating | ratingColor"
+          [innerStrokeColor]="'#C7E596'"
+          [animation]="true"
+          [animationDuration]="100"
+          titleFontSize="13"
+          titleFontWeight="900"
+          unitsFontWeight="500"
+          [backgroundPadding]="2"
+        ></circle-progress>
+      </div>
+      <img [img-preloader]="`https://image.tmdb.org/t/p/original${movie.poster_path}`" alt="" />
+    </div>
+    <div class="movie-info">
+      <div class="movie-title-date">
+        <div class="movie-name">{{ movie.title }}</div>
+
+        <div class="movie-date">{{ movie.release_date | date }}</div>
+      </div>
+    </div>
+  </div>
