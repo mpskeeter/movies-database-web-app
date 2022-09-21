@@ -80,7 +80,8 @@
       <div class="movies-type">Trending</div>
 
       <div class="movies-class trending">
-        <div class="movie" *ngFor="let movie of trendingMovies; let i = index">
+        <app-movie-card *ngFor="let movie of trendingMovies" [movie]="movie"></app-movie-card>
+        <!-- <div class="movie" *ngFor="let movie of trendingMovies; let i = index">
           <div class="fav-overlay"></div>
           <div class="fav-container" #like>
             <i
@@ -131,7 +132,7 @@
               <div class="movie-date">{{ movie.release_date | date }}</div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -152,7 +153,8 @@
       <div class="movies-type popular">Currently Popular</div>
 
       <div class="movies-class popular">
-        <div class="movie" *ngFor="let movie of popularMovies; let i = index">
+        <app-movie-card *ngFor="let movie of popularMovies" [movie]="movie"></app-movie-card>
+        <!-- <div class="movie" *ngFor="let movie of popularMovies; let i = index">
           <div class="fav-overlay"></div>
           <div class="fav-container" #like>
             <i
@@ -202,7 +204,8 @@
               <div class="movie-date">{{ movie.release_date | date }}</div>
             </div>
           </div>
-        </div>
+        </div> -->
+
 
         <div
           class="movie popular_2"
